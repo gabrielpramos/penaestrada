@@ -18,15 +18,30 @@ const MyMapComponent = compose(
   withScriptjs,
   withGoogleMap,
 )(({ isMarkerShown, onMarkerClick }) => (
-  <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-    {isMarkerShown && (
-      <Marker
-        position={{ lat: -34.397, lng: 150.644 }}
-        onClick={onMarkerClick}
-      />
-    )}
-  </GoogleMap>
+  <Map isMarkerShown={isMarkerShown} onMarkerClick={onMarkerClick} />
 ));
+
+const Map = ({ isMarkerShown, onMarkerClick }) => {
+  const [defaultCenter, setDefaultCenter] = useState({
+    lat: 0,
+    lng: 0,
+  });
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    setDefaultCenter({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
+  });
+
+  return (
+    <GoogleMap defaultZoom={8} defaultCenter={defaultCenter}>
+      {isMarkerShown && (
+        <Marker position={defaultCenter} onClick={onMarkerClick} />
+      )}
+    </GoogleMap>
+  );
+};
 
 const MapView = () => {
   const [isMarkerShown, setIsMarkerShown] = useState(false);
