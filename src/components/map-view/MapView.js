@@ -35,7 +35,7 @@ const Map = ({ isMarkerShown, onMarkerClick }) => {
   });
 
   return (
-    <GoogleMap defaultZoom={8} defaultCenter={defaultCenter}>
+    <GoogleMap defaultZoom={8} center={defaultCenter}>
       {isMarkerShown && (
         <Marker position={defaultCenter} onClick={onMarkerClick} />
       )}
