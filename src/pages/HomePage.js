@@ -1,11 +1,13 @@
 import React from "react";
 
 import BottomNavBar from "../components/bottom-navbar/BottomNavBar";
+import MapView from "../components/map-view/MapView";
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <>
-      <BottomNavBar />
+      <MapView></MapView>
+      <BottomNavBar {...props} />
     </>
   );
 };
