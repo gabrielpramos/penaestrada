@@ -7,6 +7,8 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 import "./BottomNavBar.css";
 
+const PATHS = ["/health", "/map", "chat"];
+
 const BottomNavBar = ({ history }) => {
   const [value, setValue] = useState();
   const classes = makeStyles({
@@ -19,6 +21,8 @@ const BottomNavBar = ({ history }) => {
     <BottomNavigation
       value={value}
       onChange={(event, newValue) => {
+        history.replace(PATHS[newValue]);
+
         setValue(newValue);
       }}
       showLabels
