@@ -1,0 +1,15 @@
+.MuiBottomNavigation-root {
+  background-color: rgba(0, 0, 0, 5%) !important;
+  bottom: 0;
+  position: fixed;
+  width: 100% !important;
+}
+
+.MuiBottomNavigationAction-root.Mui-selected {
+  color: #000 !important;
+}
+
+.MuiSvgIcon-root {
+  color: #e24a47;
+  margin-bottom: 7px;
+}
