@@ -7,7 +7,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 import "./BottomNavBar.css";
 
-const BottomNavBar = () => {
+const BottomNavBar = ({ history }) => {
   const [value, setValue] = useState();
   const classes = makeStyles({
     root: {
