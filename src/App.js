@@ -1,11 +1,14 @@
-import {React, View } from 'react';
-import Mapa from '../src/components/Mapa/Mapa';
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <View style={{ flex: 1 }}>
-        <Mapa/>
-      </View>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={HomePage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
